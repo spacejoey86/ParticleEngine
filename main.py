@@ -1,7 +1,8 @@
 import sys
 import pygame
 import random
-import Particles
+from Particles import *
+from Vectors import *
 
 screenX = 300
 screenY = 300
@@ -14,7 +15,8 @@ surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
 #Create the particles
 for particleIndex in range(numParticles):
-    particles.append(Particles.Particle((random.randint(0, screenX - 1), random.randint(0, screenY - 1)), (255,0,0)))
+    position = Vector2(random.randint(0, screenX - 1), random.randint(0, screenY - 1))
+    particles.append(Particle(position, (255,0,0)))
 
 while True:
     for event in pygame.event.get():
