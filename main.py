@@ -17,8 +17,8 @@ surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 #Create the particles
 for i in range(numParticles):
     position = Vector2(random.randint(0, screenX - 1), random.randint(0, screenY - 1))
-    velocity = Vector2(random.uniform(-20, 20), random.uniform(-20, 20))
-    particles.append(Particle(position, (255,100,100), velocity))
+    velocity = Vector2(random.uniform(-5, 5), random.uniform(-5, 5))
+    particles.append(Particle(position, (255,255,255), velocity))
 
 while True:
     #handle the close button

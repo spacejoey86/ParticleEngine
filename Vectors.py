@@ -98,4 +98,4 @@ class Vector2(object):
         return self + to * tval
 
     def getTuple(self):
-        return (self.x, self.y)
+        return (int(self.x), int(self.y))

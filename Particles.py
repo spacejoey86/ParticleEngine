@@ -9,8 +9,8 @@ class Particle:
         surface.set_at(self.pos.getTuple(), self.col)
     def update(self, deltaTime):
         # update vel
-        force = Vector2(2, 1.5)
+        force = Vector2(0, 0.5)
         
-        self.vel += force * deltaTime
+        self.vel += force * deltaTime * 0.001
         # update pos
-        self.pos += self.vel * deltaTime
+        self.pos += self.vel * deltaTime * 0.001
