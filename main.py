@@ -15,7 +15,8 @@ class Particle:
         surface.set_at(self.pos, self.col)
 
 pygame.init()
-surface = pygame.display.set_mode((screenX, screenY))
+surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+(screenX,screenY) = surface.get_size()
 
 #Create the particles
 for particleIndex in range(numParticles):
