@@ -1,3 +1,4 @@
+import pygame
 from Vectors import *
 class Particle:
     def __init__(self, pos, col, vel):
@@ -6,7 +7,7 @@ class Particle:
         # vel has unit pixel/sec 
         self.vel = vel
     def Draw(self, surface):
-        surface.set_at(self.pos.getTuple(), self.col)
+        pygame.draw.circle(surface, (255, 255, 255), self.pos.getTuple(), 3)
     def update(self, deltaTime, screenX, screenY):
         # update vel
         force = Vector2(0, 0.5)
