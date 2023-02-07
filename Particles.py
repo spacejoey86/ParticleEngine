@@ -1,3 +1,4 @@
+from Vectors import *
 class Particle:
     def __init__(self, pos, col, vel):
         self.pos = pos #position
