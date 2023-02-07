@@ -35,7 +35,7 @@ while True:
     #drawing and updating physics
     surface.fill((0,0,0))
     for particle in particles:
-        particle.update(deltaTime)
+        particle.update(deltaTime, screenX, screenY)
         particle.Draw(surface)
 
     pygame.display.update()
