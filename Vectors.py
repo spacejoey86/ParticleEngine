@@ -34,9 +34,68 @@ class Vector2(object):
             y = self.y - other
         return Vector2(x, y)
 
+
     def __rsub__(self, other):
         if isinstance(other, Vector2):
             x = other.x - self.x
             y = other.y - self.y
+        else:
+            x = other - self.x
+            y = other - self.y
+        return Vector2(x, y)
+
+    def __mul__(self, other):
+        if isinstance(other, Vector2):
+            x = self.x * other.x
+            y = self.y * other.y
+        else:
+            x = self.x * other
+            y = self.y * other
+        return Vector2(x, y)
+
+    __rmul__ = __mul__
+
+    def __truediv__(self, other):
+        if isinstance(other, Vector2):
+            x = self.x / other.x
+            y = self.y / other.y
+        else:
+            x = self.x / other
+            y = self.y / other
+            z = self.z / other
+        return Vector2(x, y)
+
+    def __rtruediv__(self, other):
+        if isinstance(other, Vector2):
+            x = other.x / self.x
+            y = other.y / self.y
+        else:
+            x = other / self.x
+            y = other / self.y
+        return Vector2(x, y)
+
+    def magnitude(self):
+        x = self.x**2
+        y = self.y**2
+        return sqrt(x + y)
+
+    def dot(self, other):
+        a = self.x * other.x
+        b = self.y * other.y
+        return a + b
+
+    def cross(self, other):
+        x = (self.y * other.z) - (self.z * other.y)
+        y = (self.z * other.x) - (self.x * other.z)
+        return Vector2(x, y)
+
+    def unit_vector(self):
+        return self / self.magnitude()
+
+    def clamplerp(self, v2, t):
+        to = v2 - self
+        tval = min(1, max(0, t))
+        return self + to * tval
+
     def getTuple(self):
         return (self.x, self.y)
