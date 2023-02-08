@@ -1,7 +1,7 @@
 import pygame
 from Vectors import *
 class Particle:
-    acceleration = Vector2(0,0)
+    force = Vector2(0,0)
     def __init__(self, pos, typ, vel):
         self.pos = pos #position
         self.typ = typ #colour
@@ -12,8 +12,8 @@ class Particle:
         pygame.draw.circle(surface, self.col, self.pos.getTuple(), 1)
     def update(self, deltaTime, screenX, screenY):
         # update vel
-        
-        self.vel += self.force * deltaTime * 0.001
+        acceleration = self.force * 1
+        self.vel += acceleration * deltaTime * 0.001
         # update pos
         self.pos += self.vel * deltaTime * 0.001
         if (self.pos.x > screenX or self.pos.x < 0) or (self.pos.y > screenY or self.pos.y < 0):
@@ -25,3 +25,14 @@ class Particle:
                 self.pos.y -= screenY
             else:
                 self.pos.y += screenY
+    def resetForce(self, force):
+        force = Vector2(0,0)
+    def addForce(self, force):
+        self.force += force
+    #gets the force and individual particle puts on another
+    def getForce(particle1, particle2):
+        
+        return Vector2(0,0)
+    def getForceMultiplier(particle1, particle2):
+    
+    def get
