@@ -62,7 +62,6 @@ class Vector2(object):
         else:
             x = self.x / other
             y = self.y / other
-            z = self.z / other
         return Vector2(x, y)
 
     def __rtruediv__(self, other):

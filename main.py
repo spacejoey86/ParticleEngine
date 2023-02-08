@@ -43,13 +43,8 @@ while True:
     for particle in particles:
         particle.resetForce()
         for particle2 in particles:
-            if particle == particle2:
-                continue
-            else:
-                force = forceMulArray[particle.typ][particle2.typ]
-                denom = ((particle.pos - particle2.pos).square())
-                if not (denom == 0 or force == 0):
-                    particle.addForce(1 / denom)
+            if particle != particle2:
+                particle.addForce(particle.getForce(particle2))
 
         particle.update(deltaTime, screenX, screenY)
         particle.Draw(surface)
