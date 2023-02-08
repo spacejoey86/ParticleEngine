@@ -6,7 +6,7 @@ from Vectors import *
 
 screenX = 300
 screenY = 300
-numParticles = 200
+numParticles = 50
 particles = []
 time = 0
 
@@ -17,7 +17,7 @@ forceMulArray = [[0.3, 0.5, -0.2],
                  [-0.1, 0.3, 0.8]]
 
 pygame.init()
-surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN, display=0)
 (screenX,screenY) = surface.get_size()
 
 #Create the particles

@@ -1,9 +1,10 @@
 import pygame
 from Vectors import *
+
 class Particle:
-    forceMulArray = [[0.3, 0.5, -0.2],
-                 [-0.8, 0, -0.4],
-                 [-0.1, 0.3, 0.8]]
+    forceMulArray = [[1, 0.5, 0.2],
+                 [0.8, 1, 0.4],
+                 [0.1, 0.3, 0.8]]
     def __init__(self, pos, typ, vel):
         self.pos = pos #position
         self.typ = typ #colour
@@ -43,4 +44,4 @@ class Particle:
 
         return direction * force
     def getForceMultiplier(particle1, particle2):
-        return Particle.forceMulArray[particle1.typ][particle2.typ]
+        return Particle.forceMulArray[particle1.typ][particle2.typ] * 10000
