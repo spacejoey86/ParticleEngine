@@ -1,18 +1,19 @@
 import pygame
 from Vectors import *
 class Particle:
-    def __init__(self, pos, col, vel):
+    acceleration = Vector2(0,0)
+    def __init__(self, pos, typ, vel):
         self.pos = pos #position
-        self.col = col #colour
+        self.typ = typ #colour
+        self.col = (255, 255, 255)
         # vel has unit pixel/sec 
         self.vel = vel
     def Draw(self, surface):
-        pygame.draw.circle(surface, (255, 255, 255), self.pos.getTuple(), 3)
+        pygame.draw.circle(surface, self.col, self.pos.getTuple(), 1)
     def update(self, deltaTime, screenX, screenY):
         # update vel
-        force = Vector2(0, 0.5)
         
-        self.vel += force * deltaTime * 0.001
+        self.vel += self.force * deltaTime * 0.001
         # update pos
         self.pos += self.vel * deltaTime * 0.001
         if (self.pos.x > screenX or self.pos.x < 0) or (self.pos.y > screenY or self.pos.y < 0):
