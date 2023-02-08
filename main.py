@@ -24,7 +24,7 @@ surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 for i in range(numParticles):
     position = Vector2(random.randint(0, screenX - 1), random.randint(0, screenY - 1))
     velocity = Vector2(random.uniform(-20, 20), random.uniform(-20, 20))
-    particles.append(Particle(position, (255,255,255), velocity))
+    particles.append(Particle(position, random.randint(0,2), velocity))
 
 while True:
     #handle the close button
@@ -45,8 +45,11 @@ while True:
         for particle2 in particles:
             if particle == particle2:
                 continue
-            force = forceMulArray[particle.typ][particle2.typ]
-            particle.addForce(force / ((particle.pos - particle2.pos) ** 2))
+            else:
+                force = forceMulArray[particle.typ][particle2.typ]
+                denom = ((particle.pos - particle2.pos).square())
+                if not (denom == 0 or force == 0):
+                    particle.addForce(1 / denom)
 
         particle.update(deltaTime, screenX, screenY)
         particle.Draw(surface)

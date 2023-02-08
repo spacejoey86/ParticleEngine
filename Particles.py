@@ -25,14 +25,12 @@ class Particle:
                 self.pos.y -= screenY
             else:
                 self.pos.y += screenY
-    def resetForce(self, force):
-        force = Vector2(0,0)
+    def resetForce(self):
+        self.force = Vector2(0,0)
     def addForce(self, force):
         self.force += force
     #gets the force and individual particle puts on another
     def getForce(particle1, particle2):
         
         return Vector2(0,0)
-    def getForceMultiplier(particle1, particle2):
-    
-    def get
+    #def getForceMultiplier(particle1, particle2):

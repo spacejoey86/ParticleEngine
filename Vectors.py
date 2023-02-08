@@ -97,3 +97,5 @@ class Vector2(object):
     
     def distance(self, other):
         return sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
+    def square(self):
+        return Vector2(self.x ** 2, self.y **2)
