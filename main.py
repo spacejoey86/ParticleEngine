@@ -10,6 +10,12 @@ numParticles = 200
 particles = []
 time = 0
 
+#Set up the array
+numTypes = 3
+forceMulArray = [[0.3, 0.5, -0.2],
+                 [-0.8, 0, -0.4],
+                 [-0.1, 0.3, 0.8]]
+
 pygame.init()
 surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 (screenX,screenY) = surface.get_size()
@@ -35,6 +41,13 @@ while True:
     #drawing and updating physics
     surface.fill((0,0,0))
     for particle in particles:
+        particle.resetForce()
+        for particle2 in particles:
+            if particle == particle2:
+                continue
+            force = forceMulArray[particle.typ][particle2.typ]
+            particle.addForce(force / ((particle.pos - particle2.pos) ** 2))
+
         particle.update(deltaTime, screenX, screenY)
         particle.Draw(surface)
 

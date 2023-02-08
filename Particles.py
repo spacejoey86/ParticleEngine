@@ -7,7 +7,7 @@ class Particle:
         # vel has unit pixel/sec 
         self.vel = vel
     def Draw(self, surface):
-        pygame.draw.circle(surface, (255, 255, 255), self.pos.getTuple(), 3)
+        pygame.draw.circle(surface, (255, 255, 255), self.pos.getTuple(), 1)
     def update(self, deltaTime, screenX, screenY):
         # update vel
         force = Vector2(0, 0.5)

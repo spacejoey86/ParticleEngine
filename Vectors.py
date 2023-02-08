@@ -84,11 +84,6 @@ class Vector2(object):
         b = self.y * other.y
         return a + b
 
-    def cross(self, other):
-        x = (self.y * other.z) - (self.z * other.y)
-        y = (self.z * other.x) - (self.x * other.z)
-        return Vector2(x, y)
-
     def unit_vector(self):
         return self / self.magnitude()
 
@@ -99,3 +94,6 @@ class Vector2(object):
 
     def getTuple(self):
         return (int(self.x), int(self.y))
+    
+    def distance(self, other):
+        return sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
